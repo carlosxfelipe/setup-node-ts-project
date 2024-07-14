@@ -1,4 +1,3 @@
-
 # Script de Inicialização de Projeto Node.js com TypeScript
 
 Este script automatiza a configuração inicial de um projeto Node.js com TypeScript. Ele executa os seguintes passos:
@@ -18,27 +17,27 @@ Este script automatiza a configuração inicial de um projeto Node.js com TypeSc
 
 ### Instalar as dependências
 
-\`\`\`sh
+```sh
 npm install
-\`\`\`
+```
 
 ### Rodar em modo de desenvolvimento
 
-\`\`\`sh
+```sh
 npm run dev
-\`\`\`
+```
 
 ### Construir o projeto
 
-\`\`\`sh
+```sh
 npm run build
-\`\`\`
+```
 
 ### Iniciar o projeto
 
-\`\`\`sh
+```sh
 npm start
-\`\`\`
+```
 
 ## Estrutura do Projeto
 
