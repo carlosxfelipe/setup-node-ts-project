@@ -33,12 +33,6 @@ Substitua `nome-do-projeto` pelo nome do projeto que você especificou ao execut
 
 ## Como rodar o projeto
 
-### Instalar as dependências
-
-```sh
-npm install
-```
-
 ### Rodar em modo de desenvolvimento
 
 ```sh
