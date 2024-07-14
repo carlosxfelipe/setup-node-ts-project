@@ -13,6 +13,24 @@ Este script automatiza a configuração inicial de um projeto Node.js com TypeSc
 9. Adiciona scripts ao `package.json` para facilitar o desenvolvimento, construção e execução do projeto.
 10. Cria um arquivo `README.md` com instruções de uso.
 
+## Como rodar o script de configuração
+
+### Passo 1: Executar o script de configuração
+
+```sh
+node setup-node-ts-project.js
+```
+
+### Passo 2: Navegar para a pasta do projeto
+
+Após executar o script, uma pasta com o nome do projeto será criada. Navegue para dentro desta pasta:
+
+```sh
+cd nome-do-projeto
+```
+
+Substitua `nome-do-projeto` pelo nome do projeto que você especificou ao executar o script.
+
 ## Como rodar o projeto
 
 ### Instalar as dependências
