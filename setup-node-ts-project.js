@@ -85,11 +85,9 @@ const commandExists = (command) => {
       build: "rimraf ./dist && tsc",
       start: "npm run build && node dist/app.js",
     };
-    fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2));
 
     // Passo 6: Criar arquivo README.md
-    console.log("Criando README.md...");
-    const readmeContent = `
+    let readmeContent = `
 # ${projectName}
 
 ## Como rodar o projeto
@@ -118,6 +116,60 @@ npm run build
 npm start
 \`\`\`
 `;
+
+    // Passo 7: Perguntar se deseja configurar o Jest
+    const configureJest = await askQuestion("Deseja configurar o Jest? (y/n) ");
+
+    if (configureJest.toLowerCase() === "y") {
+      console.log("Instalando Jest e dependências...");
+      execSync("npm install -D jest @types/jest ts-jest supertest", {
+        stdio: "inherit",
+      });
+
+      console.log("Configurando jest.config.js...");
+      const jestConfig = `
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  coverageReporters: ['text', 'lcov'],
+  clearMocks: false,
+  collectCoverage: true,
+};
+`;
+      fs.writeFileSync("jest.config.js", jestConfig.trim());
+
+      console.log("Adicionando scripts de teste ao package.json...");
+      packageJson.scripts = {
+        ...packageJson.scripts,
+        test: "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+      };
+
+      readmeContent += `
+### Rodar os testes
+
+\`\`\`sh
+npm test
+\`\`\`
+
+### Rodar os testes em modo watch
+
+\`\`\`sh
+npm run test:watch
+\`\`\`
+
+### Gerar cobertura dos testes
+
+\`\`\`sh
+npm run test:coverage
+\`\`\`
+`;
+
+      console.log("Configuração do Jest completa!");
+    }
+
+    fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2));
     fs.writeFileSync("README.md", readmeContent.trim());
 
     console.log("Configuração completa!");

@@ -12,6 +12,7 @@ Este script automatiza a configuração inicial de um projeto Node.js com TypeSc
 8. Cria um arquivo de configuração do Nodemon (`nodemon.json`).
 9. Adiciona scripts ao `package.json` para facilitar o desenvolvimento, construção e execução do projeto.
 10. Cria um arquivo `README.md` com instruções de uso.
+11. Pergunta se você deseja configurar o Jest para testes. Se sim, ele instala Jest e suas dependências, configura o `jest.config.js` e adiciona scripts de teste ao `package.json`.
 
 ## Como rodar o script de configuração
 
@@ -51,6 +52,24 @@ npm run build
 npm start
 ```
 
+### Rodar os testes (se o Jest estiver configurado)
+
+```sh
+npm test
+```
+
+### Rodar os testes em modo watch (se o Jest estiver configurado)
+
+```sh
+npm run test:watch
+```
+
+### Gerar cobertura dos testes (se o Jest estiver configurado)
+
+```sh
+npm run test:coverage
+```
+
 ## Estrutura do Projeto
 
 - `src/`: Contém o código-fonte do projeto.
@@ -58,5 +77,7 @@ npm start
 - `package.json`: Arquivo de configuração do npm com as dependências e scripts.
 - `tsconfig.json`: Arquivo de configuração do TypeScript.
 - `nodemon.json`: Arquivo de configuração do Nodemon.
+- `jest.config.js`: Arquivo de configuração do Jest (se configurado).
+- `README.md`: Arquivo com instruções de uso.
 
 Este script facilita a criação de um ambiente de desenvolvimento completo para projetos Node.js com TypeScript, tornando o processo de inicialização mais rápido e menos propenso a erros.
