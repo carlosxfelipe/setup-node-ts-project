@@ -81,3 +81,9 @@ npm run test:coverage
 - `README.md`: Arquivo com instruções de uso.
 
 Este script facilita a criação de um ambiente de desenvolvimento completo para projetos Node.js com TypeScript, tornando o processo de inicialização mais rápido e menos propenso a erros.
+
+## Agradecimentos
+
+Este script é baseado nas aulas do instrutor Fernando Herrera Klerith (DevTalles)
+
+https://cursos.devtalles.com/courses/nodejs-de-cero-a-experto
