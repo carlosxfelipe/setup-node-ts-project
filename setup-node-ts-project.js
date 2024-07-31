@@ -150,6 +150,19 @@ export default config;
         "test:coverage": "jest --coverage",
       };
 
+      console.log("Criando pasta e arquivo de teste...");
+      fs.mkdirSync("tests");
+      fs.writeFileSync(
+        "tests/app.test.ts",
+        `
+describe("App", () => {
+  test("should be true", () => {
+    expect(true).toBe(true);
+  });
+});
+`.trim()
+      );
+
       readmeContent += `
 ### Rodar os testes
 
