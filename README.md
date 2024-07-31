@@ -13,6 +13,7 @@ Este script automatiza a configuração inicial de um projeto Node.js com TypeSc
 9. Adiciona scripts ao `package.json` para facilitar o desenvolvimento, construção e execução do projeto.
 10. Cria um arquivo `README.md` com instruções de uso.
 11. Pergunta se você deseja configurar o Jest para testes. Se sim, ele instala Jest e suas dependências, configura o `jest.config.js` e adiciona scripts de teste ao `package.json`.
+12. Cria um arquivo `.gitignore` para excluir arquivos desnecessários de versionamento.
 
 ## Como rodar o script de configuração
 

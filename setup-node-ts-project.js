@@ -176,6 +176,33 @@ npm run test:coverage
     fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2));
     fs.writeFileSync("README.md", readmeContent.trim());
 
+    // Passo 8: Criar o arquivo .gitignore
+    console.log("Criando arquivo .gitignore...");
+    const gitignoreContent = `
+# Pastas de dependências
+node_modules/
+
+# Pasta de distribuição
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos temporários
+*.tmp
+*.swp
+*.lock
+
+# Arquivos de ambiente
+.env
+
+# Arquivos específicos do macOS
+.DS_Store
+`;
+    fs.writeFileSync(".gitignore", gitignoreContent.trim());
+
     console.log("Configuração completa!");
   } catch (error) {
     console.error(
