@@ -118,25 +118,29 @@ npm start
 `;
 
     // Passo 7: Perguntar se deseja configurar o Jest
-    const configureJest = await askQuestion("Deseja configurar o Jest? (y/n) ");
+    const configureJest = await askQuestion("Deseja configurar o Jest? (s/n) ");
 
-    if (configureJest.toLowerCase() === "y") {
+    if (configureJest.toLowerCase() === "s") {
       console.log("Instalando Jest e dependências...");
       execSync("npm install -D jest @types/jest ts-jest supertest", {
         stdio: "inherit",
       });
 
-      console.log("Configurando jest.config.js...");
+      console.log("Configurando jest.config.ts...");
       const jestConfig = `
-module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  coverageReporters: ['text', 'lcov'],
-  clearMocks: false,
+import type { Config } from "jest";
+
+const config: Config = {
   collectCoverage: true,
+  coverageDirectory: "coverage",
+  coverageProvider: "v8",
+  preset: 'ts-jest',
+  testEnvironment: "jest-environment-node",
 };
+
+export default config;
 `;
-      fs.writeFileSync("jest.config.js", jestConfig.trim());
+      fs.writeFileSync("jest.config.ts", jestConfig.trim());
 
       console.log("Adicionando scripts de teste ao package.json...");
       packageJson.scripts = {
